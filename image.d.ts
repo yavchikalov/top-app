@@ -1,6 +1,8 @@
 // this file is conditionally added/removed to next-env.d.ts
 // if the static image import handling is enabled
 
+import { SVGAttributes } from 'react'
+
 declare module '*.png' {
     const content: import('../dist/client/image').StaticImageData
 
@@ -13,7 +15,7 @@ declare module '*.svg' {
      * `@svgr/webpack` plugin or
      * `babel-plugin-inline-react-svg` plugin.
      */
-    const content: any
+    const content: React.FunctionComponent<React.SVGAttributes<SVGAttributes>>
 
     export default content
 }

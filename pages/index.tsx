@@ -1,16 +1,24 @@
-import { Htag, Button, Ptag, Tag } from "../components";
+import { useEffect, useState } from "react";
+import { Htag, Button, Ptag, Rating } from "../components";
+import { withLayout } from "../layout/Layout";
 
-export default function Home(): JSX.Element {
+function Home(): JSX.Element {
+    const [count, setCount] = useState<number>(3);
+
+    useEffect(() => {
+        if (count) {
+            console.log('count -', count);
+        }
+    });
+
     return (
         <>
-            <Htag tag="h1">213123</Htag>
-            <Button appearance="ghost" className="asdasd" arrow="right">132123</Button>
+            <Htag tag="h1">{count}</Htag>
+            <Button appearance="ghost" className="asdasd" arrow="right" onClick={() => setCount(count + 1)}>132123</Button>
             <Ptag>Lorem ipsum dolor sit amet consectetur adipisicing elit. In officiis praesentium nam hic nesciunt incidunt repellat mollitia modi, atque repellendus a, quas labore natus porro suscipit quam corrupti vel cumque.</Ptag>
-            <Tag size="m">Taggggg</Tag>
-            <Tag size="s">Taggggg</Tag>
-            <Tag size="s" color="green">Taggggg</Tag>
-            <Tag size="s" color="ghost">Taggggg</Tag>
-            <Tag size="s" color="red">Taggggg</Tag>
+            <Rating rating={count} isEditable setRating={setCount} />
         </>
     );
 }
+
+export default withLayout(Home);
