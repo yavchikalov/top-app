@@ -17,6 +17,7 @@
                     "/grid/"
                 ]
             }
-        ]
+        ],
+        "max-line-length": null
     }
 }

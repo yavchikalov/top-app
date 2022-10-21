@@ -5,6 +5,7 @@ import { ILayoutProps } from "./Layout.props";
 import { Sidebar } from "./Sidebar/Sidebar";
 import styles from './Layout.module.css';
 import { AppContextProvider, IAppContext } from "../context/app.context";
+import { Up } from '../components';
 
 const Layout = ({ children }: ILayoutProps): JSX.Element => {
     return (
@@ -15,6 +16,7 @@ const Layout = ({ children }: ILayoutProps): JSX.Element => {
                 {children}
             </div>
             <Footer className={styles.footer} />
+            <Up />
         </div>
     );
 };

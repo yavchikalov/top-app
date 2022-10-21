@@ -4,6 +4,7 @@ import { Menu } from "../Menu/Menu";
 import LogoIcon from '../../icons/logo.svg';
 import cn from 'classnames';
 import { Search } from "../../components";
+import Link from 'next/link';
 
 export const Sidebar = ({ className, ...props }: ISidebarProps): JSX.Element => {
     return (
@@ -11,7 +12,11 @@ export const Sidebar = ({ className, ...props }: ISidebarProps): JSX.Element => 
             className={cn(className, styles.sidebar)}
             {...props}
         >
-            <LogoIcon className={styles.logo} />
+            <Link href="/">
+                <a>
+                    <LogoIcon className={styles.logo} />
+                </a>
+            </Link>
             <Search />
             <Menu />
         </div>

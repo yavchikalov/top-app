@@ -11,7 +11,8 @@ export const Search = ({ className, ...props }: ISearchProps): JSX.Element => {
     const [search, setSearch] = useState<string>('');
     const router = useRouter();
 
-    const goToSearch = () => {
+    const goToSearch = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
         router.push({
             pathname: '/search',
             query: {
@@ -24,7 +25,6 @@ export const Search = ({ className, ...props }: ISearchProps): JSX.Element => {
         <form
             className={cn(className, styles.search)}
             {...props}
-            role="search"
             onSubmit={goToSearch}
         >
             <Input
@@ -37,7 +37,6 @@ export const Search = ({ className, ...props }: ISearchProps): JSX.Element => {
                 appearance="primary"
                 type="submit"
                 className={styles.button}
-                aria-label="Искать по сайту"
             >
                 <GlassIcon />
             </Button>

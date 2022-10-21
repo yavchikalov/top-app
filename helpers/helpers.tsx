@@ -8,9 +8,9 @@ import ProductsIcon from '../icons/menu/products.svg';
 
 export const firstLevelMenu: IFirstLevelMenuItem[] = [
     { route: 'courses', name: 'Курсы', icon: <CoursesIcon />, id: ITopLevelCategory.Courses },
-    { route: 'services', name: 'Сервисы', icon: <ServicesIcon />, id: ITopLevelCategory.Services },
-    { route: 'books', name: 'Книги', icon: <BooksIcon />, id: ITopLevelCategory.Books },
-    { route: 'products', name: 'Продукты', icon: <ProductsIcon />, id: ITopLevelCategory.Products },
+    { route: 'services', name: 'Сервисы', icon: <ServicesIcon />, id: ITopLevelCategory.Services }, // Пустой
+    { route: 'books', name: 'Книги', icon: <BooksIcon />, id: ITopLevelCategory.Books }, // Пустой
+    { route: 'products', name: 'Продукты', icon: <ProductsIcon />, id: ITopLevelCategory.Products }, // Пустой
 ];
 
 

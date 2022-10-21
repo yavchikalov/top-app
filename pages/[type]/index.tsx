@@ -4,12 +4,14 @@ import axios from 'axios';
 import { IMenuItem } from "../../interfaces/menu.interface";
 import { firstLevelMenu } from "../../helpers/helpers";
 import { ParsedUrlQuery } from "querystring";
+import { API } from '../../helpers/api';
+import { SectionComponent } from "../../page-components/SectionComponent/SectionComponent";
 
-function Type({ firstCategory }: ITypeProps): JSX.Element {
+function Type({ menu, firstCategory }: ITypeProps): JSX.Element {
     return (
-        <>
-            <div>{firstCategory}</div>
-        </>
+        <SectionComponent
+            sections={menu}
+        />
     );
 }
 
@@ -34,7 +36,8 @@ export const getStaticProps: GetStaticProps<ITypeProps> = async ({ params }: Get
             notFound: true
         };
     }
-    const { data: menu } = await axios.post<IMenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', {
+
+    const { data: menu } = await axios.post<IMenuItem[]>(API.topPage.find, {
         firstCategory: firstCategoryItem.id
     });
 
